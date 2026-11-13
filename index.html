@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROXAT - Choyxona & Kafe Menyu</title>
+    <title>ROXAT - Kafe Menyu</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; text-align: center; }
-        h1 { color: #f39c12; }
-        .menu-container { max-width: 600px; margin: 0 auto; background: #1e1e1e; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        .table-info { font-size: 18px; margin-bottom: 20px; color: #2ecc71; font-weight: bold; }
-        .item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #333; }
+        body { font-family: Arial, sans-serif; background: #121212; color: #fff; text-align: center; padding: 40px; }
+        .box { background: #1e1e1e; padding: 30px; border-radius: 12px; max-width: 500px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        h1 { color: #f39c12; margin-bottom: 10px; }
+        #stolText { font-size: 24px; color: #2ecc71; font-weight: bold; margin: 20px 0; }
     </style>
 </head>
 <body>
-    <div class="menu-container">
-        <h1>ROXAT Choyxona & Kafe</h1>
-        <div class="table-info" id="tableNum">Stol aniqlanmoqda...</div>
-        <p>Xush kelibsiz! Menyu yuklanmoqda...</p>
+    <div class="box">
+        <h1>ROXAT Kafe</h1>
+        <div id="stolText">Stol aniqlanmoqda...</div>
+        <p>Xush kelibsiz! Menyu tayyorlanmoqda...</p>
     </div>
 
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const stol = urlParams.get('stol');
-        if (stol) {
-            document.getElementById('tableNum').innerText = Stol raqami: ${stol};
+        const params = new URLSearchParams(window.location.search);
+        const stolNum = params.get('stol');
+        const stolDiv = document.getElementById('stolText');
+
+        if (stolNum) {
+            stolDiv.innerText = stolNum + "-STOL";
         } else {
-            document.getElementById('tableNum').innerText = "Stol belgilanmagan";
+            stolDiv.innerText = "Stol raqami ko'rsatilmagan!";
+            stolDiv.style.color = "#e74c3c";
         }
     </script>
 </body>
