@@ -6,7 +6,7 @@
     <title>ROXAT - Onlayn Menyu</title>
     <style>
         :root {
-            --card-bg: rgba(30, 30, 30, 0.90);
+            --card-bg: rgba(30, 30, 30, 0.92);
             --accent-color: #f39c12;
             --text-color: #ffffff;
             --secondary-text: #d0d0d0;
@@ -19,7 +19,7 @@
             background-size: cover;
             color: var(--text-color);
             margin: 0;
-            padding: 15px;
+            padding: 10px;
         }
         .container {
             max-width: 600px;
@@ -28,42 +28,41 @@
         header {
             text-align: center;
             background: var(--card-bg);
-            padding: 20px;
+            padding: 15px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             backdrop-filter: blur(5px);
         }
         h1 {
             color: var(--accent-color);
-            margin: 0 0 10px 0;
-            font-size: 26px;
+            margin: 0 0 5px 0;
+            font-size: 24px;
         }
         #stolText {
-            font-size: 18px;
+            font-size: 16px;
             color: var(--success-color);
             background: rgba(42, 42, 42, 0.9);
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 20px;
             display: inline-block;
             font-weight: bold;
         }
-        /* Qulayliklar bloki */
         .features-box {
             background: rgba(243, 156, 18, 0.15);
             border: 1px solid var(--accent-color);
-            padding: 12px;
+            padding: 10px;
             border-radius: 10px;
-            margin-bottom: 20px;
-            font-size: 13px;
+            margin-bottom: 15px;
+            font-size: 12px;
             text-align: center;
             color: #ffd885;
             backdrop-filter: blur(5px);
         }
         .category-title {
             color: var(--accent-color);
-            font-size: 20px;
-            margin: 25px 0 15px 5px;
+            font-size: 18px;
+            margin: 20px 0 10px 5px;
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
             padding-bottom: 5px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
@@ -71,42 +70,49 @@
         .menu-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
-            margin-bottom: 110px;
+            gap: 10px;
+            margin-bottom: 100px;
         }
         .menu-card {
             background: var(--card-bg);
             border-radius: 10px;
-            padding: 15px;
+            padding: 10px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
             backdrop-filter: blur(5px);
         }
+        .menu-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
         .menu-info {
             flex-grow: 1;
-            padding-right: 15px;
+            padding-right: 10px;
         }
         .menu-title {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: bold;
-            margin: 0 0 5px 0;
+            margin: 0 0 4px 0;
         }
         .price {
             color: var(--accent-color);
             font-weight: bold;
-            font-size: 15px;
+            font-size: 14px;
         }
         .add-btn {
             background-color: var(--success-color);
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 7px 12px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 13px;
             white-space: nowrap;
         }
         .add-btn:active {
@@ -120,7 +126,7 @@
             right: 0;
             background: rgba(26, 26, 26, 0.98);
             border-top: 2px solid var(--accent-color);
-            padding: 12px 15px;
+            padding: 10px 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -132,7 +138,7 @@
             backdrop-filter: blur(10px);
         }
         .cart-info {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--secondary-text);
         }
         .cart-info span {
@@ -143,10 +149,10 @@
             background-color: #0088cc;
             color: white;
             text-decoration: none;
-            padding: 10px 18px;
+            padding: 8px 16px;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 13px;
             pointer-events: none;
             opacity: 0.5;
             transition: 0.3s;
@@ -168,7 +174,7 @@
 
         <!-- Qulayliklar -->
         <div class="features-box">
-            ✨ <b>Bizdagi qulayliklar:</b> 5 km gacha bepul dastavka 🛵 | Xizmat haqqi: +10% 🧾 | 30 ta qulay stol 🪑
+            ✨ <b>Bizdagi qulayliklar:</b> 5 km gacha bepul dastavka 🛵 | Xizmat haqqi: +10% 🧾 | 30 ta stol 🪑
         </div>
 
         <div class="menu-grid" id="menuList">
@@ -176,6 +182,7 @@
             <div class="category-title">🍲 Asosiy Ovqatlar & Sho'rvalar</div>
             
             <div class="menu-card">
+                <img src="https://www.instagram.com/p/DNIz7H6MOYu/" alt="Sho'rva" class="menu-img" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'">
                 <div class="menu-info">
                     <div class="menu-title">🥣 Sho'rva</div>
                     <div class="price">30,000 so'm</div>
@@ -184,6 +191,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://pashbymaul.wordpress.com/2018/04/21/day-69-lag%CA%BBmon/" alt="Lag'mon" class="menu-img" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'">
                 <div class="menu-info">
                     <div class="menu-title">🍜 Lag'mon</div>
                     <div class="price">35,000 so'm</div>
@@ -192,6 +200,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://www.photorecept.ru/wp-content/uploads/2022/03/sup-mastava-1.jpg" alt="Mastava" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍲 Mastava</div>
                     <div class="price">30,000 so'm</div>
@@ -200,6 +209,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa5dcTeUwg3oZ9zcGYRAqYlOmYuRgx5vv3rNzoNtqOpaumfyPeAxqg1EIw&s=10" alt="Chuchvara" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🥟 Chuchvara</div>
                     <div class="price">30,000 so'm</div>
@@ -208,6 +218,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D0%BA%D0%B8%D0%B5_%D0%BC%D0%B0%D0%BD%D1%82%D1%8B.jpg/330px-%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D0%BA%D0%B8%D0%B5_%D0%BC%D0%B0%D0%BD%D1%82%D1%8B.jpg?utm_source=ru.wikipedia.org&utm_campaign=parser&utm_content=thumbnail" alt="Manti" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🥟 Manti (1 dona)</div>
                     <div class="price">8,000 so'm</div>
@@ -216,6 +227,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCGLn4DtPCS1CzuLnoLBQV7BGdE9gEptLtHyAnRHQbFK0ZErz3wtWIb87T&s=10" alt="Tabaka" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍗 Tabaka</div>
                     <div class="price">65,000 so'm</div>
@@ -224,6 +236,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6v5lvJ9wNAvW0FdR5RDCk9S-mNkqu5RU2ljWP0xmVWgH3Ylva4KaPcv3p&s=10" alt="Vaguri" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🥩 Vaguri (1 kg)</div>
                     <div class="price">280,000 so'm</div>
@@ -232,6 +245,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://avatars.mds.yandex.net/get-altay/19613367/2a0000019d0e5be0377fa1233db511b336eb/L_height" alt="Jiz" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍖 Jiz (1 kg)</div>
                     <div class="price">280,000 so'm</div>
@@ -240,6 +254,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ73vZJjMnEEcL2CTUhSw1IUqjZzz2BRCouiiUtAA-vKsDerBN9Mahjg8&s=10" alt="Baliq" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🐟 Baliq (1 kg)</div>
                     <div class="price">90,000 so'm</div>
@@ -251,6 +266,7 @@
             <div class="category-title">🍟 Gazaklar va Fast-Food</div>
 
             <div class="menu-card">
+                <img src="https://stolle-samara.ru/image/cache/catalog/menu/goryachee/kuraao-900x600.jpg" alt="Krilishka fri" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍗 Krilishka fri</div>
                     <div class="price">40,000 so'm</div>
@@ -259,6 +275,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://buy.am/media/image/4c/45/50/French_Fries_jeans_bistro.webp" alt="Fri" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍟 Fri</div>
                     <div class="price">15,000 so'm</div>
@@ -270,6 +287,7 @@
             <div class="category-title">🍢 Shashliklar</div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROjNdN-tIrNHolArShZF4IxCfwKAWnDbA_VWnIwb3Ryr1O9HkYADWgZD8&s=10" alt="Qo'y jaz" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍢 Qo'y jaz</div>
                     <div class="price">32,000 so'm</div>
@@ -278,6 +296,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROjNdN-tIrNHolArShZF4IxCfwKAWnDbA_VWnIwb3Ryr1O9HkYADWgZD8&s=10" alt="Qiyma (1)" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍢 Qiyma (1)</div>
                     <div class="price">20,000 so'm</div>
@@ -286,6 +305,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROjNdN-tIrNHolArShZF4IxCfwKAWnDbA_VWnIwb3Ryr1O9HkYADWgZD8&s=10" alt="Qiyma (2)" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍢 Qiyma (2)</div>
                     <div class="price">15,000 so'm</div>
@@ -294,6 +314,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv6-IzPCHuedS9kcR0NX8cTNS0CYAQXbypL17JjyH_MelkExPwRbVDLfU&s=10" alt="Urdak" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍢 Urdak</div>
                     <div class="price">20,000 so'm</div>
@@ -302,6 +323,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ54VQEG6x6DvW6M21wJ4mL08W8diy0e81rAD8HX4FpB4GSbtwCq-G9YGVS&s=10" alt="Tovuk kanot" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍢 Tovuk kanot</div>
                     <div class="price">20,000 so'm</div>
@@ -310,6 +332,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdr6PzemCvcQ7vmq2YYttxncLGDPWwklbx7HxBMtVsKw&s=10" alt="Dumba" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🍢 Dumba</div>
                     <div class="price">25,000 so'm</div>
@@ -318,6 +341,7 @@
             </div>
 
             <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROjNdN-tIrNHolArShZF4IxCfwKAWnDbA_VWnIwb3Ryr1O9HkYADWgZD8&s=10" alt="Mangal tovuk" class="menu-img">
                 <div class="menu-info">
                     <div class="menu-title">🔥 Mangal tovuk</div>
                     <div class="price">65,000 so'm</div>
@@ -337,7 +361,6 @@
     </div>
 
     <script>
-        // 30 ta stolni qo'llab-quvvatlash uchun tekshiruv
         const params = new URLSearchParams(window.location.search);
         let stolNum = params.get('stol');
         
@@ -400,11 +423,10 @@
             }
         }
 
-        // Buyurtmani bosganda buferga nusxalash va avtomatik Telegramga o'tish
         function copyAndOrder(e) {
             if (currentMessage) {
                 navigator.clipboard.writeText(currentMessage).then(() => {
-                    // Buferga muvaffaqiyatli nusxalandi
+                    // Buferga nusxalandi
                 }).catch(err => {
                     console.log('Nusxalashda xatolik:', err);
                 });
