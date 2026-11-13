@@ -293,4 +293,77 @@
             </div>
 
             <div class="menu-card">
-                <div class="
+                <div class="menu-info">
+                    <div class="menu-title">Dumba</div>
+                    <div class="price">25,000 so'm</div>
+                </div>
+                <button class="add-btn" onclick="addToOrder('Dumba', 25000)">Qo'shish</button>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-info">
+                    <div class="menu-title">Mangal tovuk</div>
+                    <div class="price">65,000 so'm</div>
+                </div>
+                <button class="add-btn" onclick="addToOrder('Mangal tovuk', 65000)">Qo'shish</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pastdagi buyurtma paneli -->
+    <div class="cart-bar">
+        <div class="cart-info">
+            Tanlandi: <span id="cartCount">0 ta</span><br>
+            Jami: <span id="cartTotal" style="color: #f39c12;">0 so'm</span>
+        </div>
+        <a id="tgLink" href="#" target="_blank" class="tg-btn">Buyurtma Berish</a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const stolNum = params.get('stol') || 'Nomaʼlum';
+        document.getElementById('stolText').innerText = "Stol raqami: № " + stolNum;
+
+        let cart = [];
+
+        function addToOrder(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            const countEl = document.getElementById('cartCount');
+            const totalEl = document.getElementById('cartTotal');
+            const tgLink = document.getElementById('tgLink');
+
+            let totalSum = cart.reduce((sum, item) => sum + item.price, 0);
+            
+            countEl.innerText = cart.length + " ta";
+            totalEl.innerText = totalSum.toLocaleString() + " so'm";
+
+            if (cart.length > 0) {
+                tgLink.classList.add('active');
+                
+                let itemsSummary = {};
+                cart.forEach(item => {
+                    itemsSummary[item.name] = (itemsSummary[item.name] || 0) + 1;
+                });
+
+                let messageText = `🍽 *ROXAT Choyxonasidan Buyurtma!*\n`;
+                messageText += `📍 *Stol raqami:* ${stolNum}\n\n*Buyurtmalar:* \n`;
+                
+                for (let [item, count] of Object.entries(itemsSummary)) {
+                    messageText += `▫️ ${item} x ${count}\n`;
+                }
+                
+                messageText += `\n💰 *Umumiy summa:* ${totalSum.toLocaleString()} so'm`;
+
+                tgLink.href = `https://t.me/Roxat_choyxonaa?text=` + encodeURIComponent(messageText);
+            } else {
+                tgLink.classList.remove('active');
+                tgLink.href = "#";
+            }
+        }
+    </script>
+</body>
+</html>
