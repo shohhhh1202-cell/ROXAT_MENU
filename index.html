@@ -6,7 +6,7 @@
     <title>ROXAT - Onlayn Menyu</title>
     <style>
         :root {
-            --card-bg: rgba(30, 30, 30, 0.88);
+            --card-bg: rgba(30, 30, 30, 0.90);
             --accent-color: #f39c12;
             --text-color: #ffffff;
             --secondary-text: #d0d0d0;
@@ -14,8 +14,7 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Siz yuborgan Wikimedia'dagi rasm fon sifatida o'rnatildi */
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
                         url('https://upload.wikimedia.org/wikipedia/uz/d/d2/Chayxona.jpg') no-repeat center center fixed;
             background-size: cover;
             color: var(--text-color);
@@ -49,6 +48,18 @@
             display: inline-block;
             font-weight: bold;
         }
+        /* Qulayliklar bloki */
+        .features-box {
+            background: rgba(243, 156, 18, 0.15);
+            border: 1px solid var(--accent-color);
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            text-align: center;
+            color: #ffd885;
+            backdrop-filter: blur(5px);
+        }
         .category-title {
             color: var(--accent-color);
             font-size: 20px;
@@ -61,7 +72,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 12px;
-            margin-bottom: 90px;
+            margin-bottom: 110px;
         }
         .menu-card {
             background: var(--card-bg);
@@ -107,9 +118,9 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(26, 26, 26, 0.95);
+            background: rgba(26, 26, 26, 0.98);
             border-top: 2px solid var(--accent-color);
-            padding: 15px;
+            padding: 12px 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -121,7 +132,7 @@
             backdrop-filter: blur(10px);
         }
         .cart-info {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--secondary-text);
         }
         .cart-info span {
@@ -132,13 +143,14 @@
             background-color: #0088cc;
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 8px;
             font-weight: bold;
             font-size: 14px;
             pointer-events: none;
             opacity: 0.5;
             transition: 0.3s;
+            text-align: center;
         }
         .tg-btn.active {
             pointer-events: auto;
@@ -154,158 +166,163 @@
             <div id="stolText">Stol aniqlanmoqda...</div>
         </header>
 
+        <!-- Qulayliklar -->
+        <div class="features-box">
+            ✨ <b>Bizdagi qulayliklar:</b> 5 km gacha bepul dastavka 🛵 | Xizmat haqqi: +10% 🧾 | 30 ta qulay stol 🪑
+        </div>
+
         <div class="menu-grid" id="menuList">
             <!-- Asosiy ovqatlar -->
-            <div class="category-title">Asosiy Ovqatlar & Sho'rvalar</div>
+            <div class="category-title">🍲 Asosiy Ovqatlar & Sho'rvalar</div>
             
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Sho'rva</div>
+                    <div class="menu-title">🥣 Sho'rva</div>
                     <div class="price">30,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Sho\'rva', 30000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🥣 Sho\'rva', 30000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Lag'mon</div>
+                    <div class="menu-title">🍜 Lag'mon</div>
                     <div class="price">35,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Lag\'mon', 35000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍜 Lag\'mon', 35000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Mastava</div>
+                    <div class="menu-title">🍲 Mastava</div>
                     <div class="price">30,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Mastava', 30000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍲 Mastava', 30000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Chuchvara</div>
+                    <div class="menu-title">🥟 Chuchvara</div>
                     <div class="price">30,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Chuchvara', 30000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🥟 Chuchvara', 30000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Manti (1 dona)</div>
+                    <div class="menu-title">🥟 Manti (1 dona)</div>
                     <div class="price">8,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Manti (1 dona)', 8000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🥟 Manti (1 dona)', 8000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Tabaka</div>
+                    <div class="menu-title">🍗 Tabaka</div>
                     <div class="price">65,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Tabaka', 65000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍗 Tabaka', 65000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Vaguri (1 kg)</div>
+                    <div class="menu-title">🥩 Vaguri (1 kg)</div>
                     <div class="price">280,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Vaguri (1 kg)', 280000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🥩 Vaguri (1 kg)', 280000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Jiz (1 kg)</div>
+                    <div class="menu-title">🍖 Jiz (1 kg)</div>
                     <div class="price">280,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Jiz (1 kg)', 280000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍖 Jiz (1 kg)', 280000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Baliq (1 kg)</div>
+                    <div class="menu-title">🐟 Baliq (1 kg)</div>
                     <div class="price">90,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Baliq (1 kg)', 90000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🐟 Baliq (1 kg)', 90000)">Qo'shish</button>
             </div>
 
             <!-- Fast-food & Gazaklar -->
-            <div class="category-title">Gazaklar va Fast-Food</div>
+            <div class="category-title">🍟 Gazaklar va Fast-Food</div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Krilishka fri</div>
+                    <div class="menu-title">🍗 Krilishka fri</div>
                     <div class="price">40,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Krilishka fri', 40000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍗 Krilishka fri', 40000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Fri</div>
+                    <div class="menu-title">🍟 Fri</div>
                     <div class="price">15,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Fri', 15000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍟 Fri', 15000)">Qo'shish</button>
             </div>
 
             <!-- Shashliklar -->
-            <div class="category-title">Shashliklar</div>
+            <div class="category-title">🍢 Shashliklar</div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Qo'y jaz</div>
+                    <div class="menu-title">🍢 Qo'y jaz</div>
                     <div class="price">32,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Qo\'y jaz', 32000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍢 Qo\'y jaz', 32000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Qiyma (1)</div>
+                    <div class="menu-title">🍢 Qiyma (1)</div>
                     <div class="price">20,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Qiyma', 20000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍢 Qiyma (1)', 20000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Qiyma (2)</div>
+                    <div class="menu-title">🍢 Qiyma (2)</div>
                     <div class="price">15,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Qiyma', 15000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍢 Qiyma (2)', 15000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Urdak</div>
+                    <div class="menu-title">🍢 Urdak</div>
                     <div class="price">20,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Urdak', 20000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍢 Urdak', 20000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Tovuk kanot</div>
+                    <div class="menu-title">🍢 Tovuk kanot</div>
                     <div class="price">20,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Tovuk kanot', 20000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍢 Tovuk kanot', 20000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Dumba</div>
+                    <div class="menu-title">🍢 Dumba</div>
                     <div class="price">25,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Dumba', 25000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🍢 Dumba', 25000)">Qo'shish</button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-info">
-                    <div class="menu-title">Mangal tovuk</div>
+                    <div class="menu-title">🔥 Mangal tovuk</div>
                     <div class="price">65,000 so'm</div>
                 </div>
-                <button class="add-btn" onclick="addToOrder('Mangal tovuk', 65000)">Qo'shish</button>
+                <button class="add-btn" onclick="addToOrder('🔥 Mangal tovuk', 65000)">Qo'shish</button>
             </div>
         </div>
     </div>
@@ -313,18 +330,32 @@
     <!-- Pastdagi buyurtma paneli -->
     <div class="cart-bar">
         <div class="cart-info">
-            Tanlandi: <span id="cartCount">0 ta</span><br>
-            Jami: <span id="cartTotal" style="color: #f39c12;">0 so'm</span>
+            Mahsulot: <span id="cartCount">0 ta</span><br>
+            Jami (+10% xizmat): <span id="cartTotal" style="color: #f39c12;">0 so'm</span>
         </div>
-        <a id="tgLink" href="#" target="_blank" class="tg-btn">Buyurtma Berish</a>
+        <a id="tgLink" href="#" target="_blank" class="tg-btn" onclick="copyAndOrder(event)">Buyurtma Berish</a>
     </div>
 
     <script>
+        // 30 ta stolni qo'llab-quvvatlash uchun tekshiruv
         const params = new URLSearchParams(window.location.search);
-        const stolNum = params.get('stol') || 'Nomaʼlum';
-        document.getElementById('stolText').innerText = "Stol raqami: № " + stolNum;
+        let stolNum = params.get('stol');
+        
+        if (stolNum) {
+            let num = parseInt(stolNum);
+            if (num >= 1 && num <= 30) {
+                document.getElementById('stolText').innerText = "🪑 Stol raqami: № " + num;
+            } else {
+                document.getElementById('stolText').innerText = "🪑 Noto'g'ri stol raqami";
+                stolNum = "Noma'lum";
+            }
+        } else {
+            document.getElementById('stolText').innerText = "🪑 Stol aniqlanmadi";
+            stolNum = "Noma'lum";
+        }
 
         let cart = [];
+        let currentMessage = "";
 
         function addToOrder(name, price) {
             cart.push({ name, price });
@@ -336,7 +367,9 @@
             const totalEl = document.getElementById('cartTotal');
             const tgLink = document.getElementById('tgLink');
 
-            let totalSum = cart.reduce((sum, item) => sum + item.price, 0);
+            let subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+            let serviceFee = subtotal * 0.10; // 10% xizmat haqqi
+            let totalSum = subtotal + serviceFee;
             
             countEl.innerText = cart.length + " ta";
             totalEl.innerText = totalSum.toLocaleString() + " so'm";
@@ -349,19 +382,32 @@
                     itemsSummary[item.name] = (itemsSummary[item.name] || 0) + 1;
                 });
 
-                let messageText = `🍽 *ROXAT Choyxonasidan Buyurtma!*\n`;
-                messageText += `📍 *Stol raqami:* ${stolNum}\n\n*Buyurtmalar:* \n`;
+                currentMessage = `🍽 *ROXAT Choyxonasidan Buyurtma!*\n`;
+                currentMessage += `🪑 *Stol raqami:* ${stolNum}\n\n*Buyurtmalar:* \n`;
                 
                 for (let [item, count] of Object.entries(itemsSummary)) {
-                    messageText += `▫️ ${item} x ${count}\n`;
+                    currentMessage += `▫️ ${item} x ${count}\n`;
                 }
                 
-                messageText += `\n💰 *Umumiy summa:* ${totalSum.toLocaleString()} so'm`;
+                currentMessage += `\n🧾 *Xizmat haqqi (10%):* ${serviceFee.toLocaleString()} so'm`;
+                currentMessage += `\n💰 *Jami summa:* ${totalSum.toLocaleString()} so'm`;
 
-                tgLink.href = `https://t.me/Roxat_choyxonaa?text=` + encodeURIComponent(messageText);
+                tgLink.href = `https://t.me/Roxat_choyxonaa?text=` + encodeURIComponent(currentMessage);
             } else {
                 tgLink.classList.remove('active');
                 tgLink.href = "#";
+                currentMessage = "";
+            }
+        }
+
+        // Buyurtmani bosganda buferga nusxalash va avtomatik Telegramga o'tish
+        function copyAndOrder(e) {
+            if (currentMessage) {
+                navigator.clipboard.writeText(currentMessage).then(() => {
+                    // Buferga muvaffaqiyatli nusxalandi
+                }).catch(err => {
+                    console.log('Nusxalashda xatolik:', err);
+                });
             }
         }
     </script>
