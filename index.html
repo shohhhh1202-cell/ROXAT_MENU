@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROXAT - Choyxona & Kafe Menyu</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; text-align: center; }
+        h1 { color: #f39c12; }
+        .menu-container { max-width: 600px; margin: 0 auto; background: #1e1e1e; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .table-info { font-size: 18px; margin-bottom: 20px; color: #2ecc71; font-weight: bold; }
+        .item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #333; }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>ROXAT Choyxona & Kafe</h1>
+        <div class="table-info" id="tableNum">Stol aniqlanmoqda...</div>
+        <p>Xush kelibsiz! Menyu yuklanmoqda...</p>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const stol = urlParams.get('stol');
+        if (stol) {
+            document.getElementById('tableNum').innerText = Stol raqami: ${stol};
+        } else {
+            document.getElementById('tableNum').innerText = "Stol belgilanmagan";
+        }
+    </script>
+</body>
+</html>
