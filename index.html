@@ -1,534 +1,356 @@
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROXAT - Onlayn Menyu</title>
+<title>ROXAT Choyxona</title>
 
 <style>
-:root {
-    --card-bg: rgba(30,30,30,.94);
-    --accent: #f39c12;
-    --text: #fff;
-    --secondary: #d0d0d0;
-    --success: #2ecc71;
-}
-
 * { box-sizing: border-box; }
 
 body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg,#151515,#292929);
-    background-attachment: fixed;
-    color: var(--text);
     margin: 0;
-    padding: 10px;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #183d2b, #315b3c, #142c20);
+    color: white;
 }
 
 header {
     text-align: center;
-    background: var(--card-bg);
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 15px;
+    padding: 25px 10px;
+    background: #10291d;
+    border-bottom: 3px solid #d4a943;
 }
 
-h1 {
-    color: var(--accent);
-    margin: 0 0 8px;
-    font-size: 24px;
+header h1 {
+    color: #f3d47a;
+    margin: 0;
+    font-size: 30px;
 }
 
-#stolText {
-    font-size: 16px;
-    color: var(--success);
-    background: #2a2a2a;
-    padding: 6px 12px;
-    border-radius: 20px;
-    display: inline-block;
-    font-weight: bold;
+header p {
+    margin-bottom: 0;
+    color: #eee;
 }
 
-.features-box {
-    background: #f39c1226;
-    border: 1px solid var(--accent);
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    font-size: 12px;
+#tableNumber {
     text-align: center;
-    color: #ffd885;
+    margin: 15px auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffe08a;
 }
 
-.category-title {
-    color: var(--accent);
-    font-size: 18px;
-    margin: 20px 0 10px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #ffffff33;
-    grid-column: 1 / -1;
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 12px;
 }
 
-.menu-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-bottom: 105px;
-}
-
-.menu-card {
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 10px;
+.menu-item {
     display: flex;
     align-items: center;
-    box-shadow: 0 4px 10px #0008;
-    min-width: 0;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    gap: 10px;
 }
 
-.menu-img {
-    width: 84px;
-    height: 84px;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-right: 12px;
-    flex-shrink: 0;
-    background: #444;
+.food-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.menu-info {
-    flex: 1;
-    min-width: 0;
-    padding-right: 8px;
+.food-emoji {
+    font-size: 38px;
+    width: 50px;
+    text-align: center;
 }
 
-.menu-title {
-    font-size: 15px;
+.food-name {
+    font-size: 17px;
     font-weight: bold;
-    margin: 0 0 5px;
 }
 
-.price {
-    color: var(--accent);
-    font-weight: bold;
-    font-size: 14px;
+.food-price {
+    color: #f5d77d;
+    margin-top: 5px;
 }
 
-.add-btn {
-    background: var(--success);
-    color: white;
+button {
     border: none;
-    padding: 8px 11px;
-    border-radius: 6px;
-    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px 14px;
+    background: #d5a83d;
+    color: #172719;
     font-weight: bold;
-    font-size: 13px;
-    white-space: nowrap;
+    cursor: pointer;
 }
 
-.add-btn:active {
-    transform: scale(.95);
+button:active {
+    transform: scale(0.96);
 }
 
-.cart-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #1a1a1af7;
-    border-top: 2px solid var(--accent);
-    padding: 10px 15px;
+.cart {
+    background: rgba(0,0,0,0.25);
+    border: 1px solid #d5a83d;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 25px;
+}
+
+.cart h2 {
+    color: #f5d77d;
+    text-align: center;
+}
+
+.cart-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 -4px 20px #000b;
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 16px 16px 0 0;
     gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
-.cart-info {
-    font-size: 12px;
-    color: var(--secondary);
+.total {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-top: 15px;
 }
 
-.cart-info span {
-    color: var(--text);
-    font-weight: bold;
-}
-
-.tg-btn {
-    background: #0088cc;
+.order-btn {
+    width: 100%;
+    margin-top: 15px;
+    background: #22a45a;
     color: white;
-    text-decoration: none;
-    padding: 9px 13px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 13px;
-    pointer-events: none;
-    opacity: .5;
+    font-size: 17px;
+    padding: 14px;
+}
+
+.remove-btn {
+    background: #a83c32;
+    color: white;
+    padding: 5px 9px;
+}
+
+footer {
     text-align: center;
-    white-space: nowrap;
-}
-
-.tg-btn.active {
-    pointer-events: auto;
-    opacity: 1;
-}
-
-@media(max-width:360px) {
-    .menu-img {
-        width: 70px;
-        height: 70px;
-        margin-right: 9px;
-    }
-
-    .add-btn {
-        padding: 7px 8px;
-        font-size: 12px;
-    }
+    padding: 25px 10px;
+    color: #ddd;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
 <header>
-    <h1>ROXAT Choyxona</h1>
-    <div id="stolText">Stol aniqlanmoqda...</div>
+    <h1>🍽️ ROXAT CHOYXONA</h1>
+    <p>Ta'mi o'zgacha, xizmati a'lo!</p>
 </header>
 
-<div class="features-box">
-    ✨ <b>Bizdagi qulayliklar:</b>
-    5 km gacha bepul dastavka 🛵 |
-    Xizmat haqqi: +10% 🧾 |
-    30 ta stol 🪑
+<div id="tableNumber">Stol raqami: aniqlanmoqda...</div>
+
+<div class="container">
+    <h2>📋 TAOMLAR MENYUSI</h2>
+    <div id="menu"></div>
+
+    <div class="cart">
+        <h2>🛒 SAVATCHA</h2>
+        <div id="cartItems">Hozircha savatcha bo'sh</div>
+
+        <div class="total">
+            <div>Jami: <span id="subtotal">0</span> so'm</div>
+            <div>Xizmat haqi (10%): <span id="service">0</span> so'm</div>
+            <hr>
+            <strong>Umumiy: <span id="total">0</span> so'm</strong>
+        </div>
+
+        <button class="order-btn" onclick="sendOrder()">
+            📲 Telegram orqali buyurtma berish
+        </button>
+    </div>
 </div>
 
-<div class="menu-grid" id="menuList">
-
-<div class="category-title">🍲 Asosiy Ovqatlar & Sho'rvalar</div>
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqQrfMq1n-xj-QCKxyB4BNb6UOF1t7pS-fVn4YKFHAJeaMA4EH2Bdz7xE&s=10"
-alt="Sho'rva">
-<div class="menu-info">
-<div class="menu-title">🥣 Sho'rva</div>
-<div class="price">30,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🥣 Sho\\'rva',30000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://upload.wikimedia.org/wikipedia/commons/0/0f/%D0%9F%D0%BE%D1%80%D1%86%D0%B8%D1%8F_%D0%BB%D0%B0%D0%B3%D0%BC%D0%B0%D0%BD%D0%B0.jpg"
-alt="Lag'mon">
-<div class="menu-info">
-<div class="menu-title">🍜 Lag'mon</div>
-<div class="price">35,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍜 Lag\\'mon',35000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://www.photorecept.ru/wp-content/uploads/2022/03/sup-mastava-1.jpg"
-alt="Mastava">
-<div class="menu-info">
-<div class="menu-title">🍲 Mastava</div>
-<div class="price">30,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍲 Mastava',30000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa5dcTeUwg3oZ9zcGYRAqYlOmYuRgx5vv3rNzoNtqOpaumfyPeAxqg1EIw&s=10"
-alt="Chuchvara">
-<div class="menu-info">
-<div class="menu-title">🥟 Chuchvara</div>
-<div class="price">30,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🥟 Chuchvara',30000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D0%BA%D0%B8%D0%B5_%D0%BC%D0%B0%D0%BD%D1%82%D1%8B.jpg/330px-%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D0%BA%D0%B8%D0%B5_%D0%BC%D0%B0%D0%BD%D1%82%D1%8B.jpg"
-alt="Manti">
-<div class="menu-info">
-<div class="menu-title">🥟 Manti (1 dona)</div>
-<div class="price">8,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🥟 Manti (1 dona)',8000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCGLn4DtPCS1CzuLnoLBQV7BGdE9gEptLtHyAnRHQbFK0ZErz3wtWIb87T&s=10"
-alt="Tabaka">
-<div class="menu-info">
-<div class="menu-title">🍗 Tabaka</div>
-<div class="price">65,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍗 Tabaka',65000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6v5lvJ9wNAvW0FdR5RDCk9S-mNkqu5RU2ljWP0xmVWgH3Ylva4KaPcv3p&s=10"
-alt="Vaguri">
-<div class="menu-info">
-<div class="menu-title">🥩 Vaguri (1 kg)</div>
-<div class="price">280,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🥩 Vaguri (1 kg)',280000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://avatars.mds.yandex.net/get-altay/19613367/2a0000019d0e5be0377fa1233db511b336eb/L_height"
-alt="Jiz">
-<div class="menu-info">
-<div class="menu-title">🍖 Jiz (1 kg)</div>
-<div class="price">280,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍖 Jiz (1 kg)',280000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ73vZJjMnEEcL2CTUhSw1IUqjZzz2BRCouiiUtAA-vKsDerBN9Mahjg8&s=10"
-alt="Baliq">
-<div class="menu-info">
-<div class="menu-title">🐟 Baliq (1 kg)</div>
-<div class="price">90,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🐟 Baliq (1 kg)',90000)">Qo'shish</button>
-</div>
-
-<div class="category-title">🍟 Gazaklar va Fast-Food</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://stolle-samara.ru/image/cache/catalog/menu/goryachee/kuraao-900x600.jpg"
-alt="Krilishka fri">
-<div class="menu-info">
-<div class="menu-title">🍗 Krilishka fri</div>
-<div class="price">40,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍗 Krilishka fri',40000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://buy.am/media/image/4c/45/50/French_Fries_jeans_bistro.webp"
-alt="Fri">
-<div class="menu-info">
-<div class="menu-title">🍟 Fri</div>
-<div class="price">15,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍟 Fri',15000)">Qo'shish</button>
-</div>
-
-<div class="category-title">🍢 Shashliklar</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROjNdN-tIrNHolArShZF4IxCfwKAWnDbA_VWnIwb3Ryr1O9HkYADWgZD8&s=10"
-alt="Qo'y jaz">
-<div class="menu-info">
-<div class="menu-title">🍢 Qo'y jaz</div>
-<div class="price">32,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍢 Qo\\'y jaz',32000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROjNdN-tIrNHolArShZF4IxCfwKAWnDbA_VWnIwb3Ryr1O9HkYADWgZD8&s=10"
-alt="Qiyma 1">
-<div class="menu-info">
-<div class="menu-title">🍢 Qiyma (1)</div>
-<div class="price">20,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍢 Qiyma (1)',20000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROjNdN-tIrNHolArShZF4IxCfwKAWnDbA_VWnIwb3Ryr1O9HkYADWgZD8&s=10"
-alt="Qiyma 2">
-<div class="menu-info">
-<div class="menu-title">🍢 Qiyma (2)</div>
-<div class="price">15,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍢 Qiyma (2)',15000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv6-IzPCHuedS9kcR0NX8cTNS0CYAQXbypL17JjyH_MelkExPwRbVDLfU&s=10"
-alt="Urdak">
-<div class="menu-info">
-<div class="menu-title">🍢 Urdak</div>
-<div class="price">20,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍢 Urdak',20000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ54VQEG6x6DvW6M21wJ4mL08W8diy0e81rAD8HX4FpB4GSbtwCq-G9YGVS&s=10"
-alt="Tovuk kanot">
-<div class="menu-info">
-<div class="menu-title">🍢 Tovuk kanot</div>
-<div class="price">20,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍢 Tovuk kanot',20000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdr6PzemCvcQ7vmq2YYttxncLGDPWwklbx7HxBMtVsKw&s=10"
-alt="Dumba">
-<div class="menu-info">
-<div class="menu-title">🍢 Dumba</div>
-<div class="price">25,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🍢 Dumba',25000)">Qo'shish</button>
-</div>
-
-<div class="menu-card">
-<img class="menu-img" loading="lazy"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCoaKsTsPV6-jxrdgv3CDJ_JIpdZnifsra8j1Wwm06NQ&s=10"
-alt="Mangal tovuk">
-<div class="menu-info">
-<div class="menu-title">🔥 Mangal tovuk</div>
-<div class="price">65,000 so'm</div>
-</div>
-<button class="add-btn" onclick="addToOrder('🔥 Mangal tovuk',65000)">Qo'shish</button>
-</div>
-
-</div>
-</div>
-
-<div class="cart-bar">
-<div class="cart-info">
-Mahsulot: <span id="cartCount">0 ta</span><br>
-Jami (+10% xizmat):
-<span id="cartTotal" style="color:#f39c12">0 so'm</span>
-</div>
-
-<a id="tgLink" href="#" target="_blank"
-rel="noopener noreferrer" class="tg-btn"
-onclick="copyAndOrder(event)">
-Buyurtma Berish
-</a>
-</div>
+<footer>© ROXAT Choyxona</footer>
 
 <script>
-const params = new URLSearchParams(window.location.search);
-let stolNum = params.get('stol');
-
-if (stolNum) {
-    const num = Number(stolNum);
-if (Number.isInteger(num) && num >= 1 && num <= 30) {
-        document.getElementById('stolText').innerText =
-            '🪑 Stol raqami: № ' + num;
-        stolNum = num;
-    } else {
-        document.getElementById('stolText').innerText =
-            "🪑 Noto'g'ri stol raqami";
-        stolNum = 'Noma’lum';
-    }
-} else {
-    document.getElementById('stolText').innerText =
-        '🪑 Stol aniqlanmadi';
-    stolNum = 'Noma’lum';
-}
+const foods = [
+    {name: "Sho'rva", price: 30000, emoji: "🥣"},
+    {name: "Lag'mon", price: 35000, emoji: "🍜"},
+    {name: "Mastava", price: 30000, emoji: "🍲"},
+    {name: "Chuchvara", price: 30000, emoji: "🥟"},
+    {name: "Manti (1 dona)", price: 8000, emoji: "🥟"},
+    {name: "Tabaka", price: 65000, emoji: "🍗"},
+    {name: "Vaguri (1 kg)", price: 280000, emoji: "🍖"},
+    {name: "Jiz (1 kg)", price: 280000, emoji: "🥩"},
+    {name: "Baliq (1 kg)", price: 90000, emoji: "🐟"},
+    {name: "Krilishka fri", price: 40000, emoji: "🍗"},
+    {name: "Fri", price: 15000, emoji: "🍟"},
+    {name: "Qo'y jaz", price: 32000, emoji: "🍖"},
+    {name: "Qiyma (1)", price: 20000, emoji: "🍢"},
+    {name: "Qiyma (2)", price: 15000, emoji: "🍢"},
+    {name: "Urdak", price: 20000, emoji: "🦆"},
+    {name: "Tovuk kanot", price: 20000, emoji: "🍗"},
+    {name: "Dumba", price: 25000, emoji: "🥩"},
+    {name: "Mangal tovuk", price: 65000, emoji: "🔥"}
+];
 
 let cart = [];
-let currentMessage = '';
 
-function addToOrder(name, price) {
-    cart.push({name, price});
+const params = new URLSearchParams(window.location.search);
+const table = params.get("stol");
+
+if (table && Number(table) >= 1 && Number(table) <= 30) {
+    document.getElementById("tableNumber").textContent =
+        "🪑 Stol raqami: " + table;
+} else {
+    document.getElementById("tableNumber").textContent =
+        "🪑 Stol raqami: ko'rsatilmagan";
+}
+
+const menu = document.getElementById("menu");
+
+foods.forEach((food, index) => {
+    const item = document.createElement("div");
+    item.className = "menu-item";
+
+    const info = document.createElement("div");
+    info.className = "food-info";
+
+    const emoji = document.createElement("div");
+    emoji.className = "food-emoji";
+    emoji.textContent = food.emoji;
+
+    const details = document.createElement("div");
+
+    const name = document.createElement("div");
+    name.className = "food-name";
+    name.textContent = food.name;
+
+    const price = document.createElement("div");
+    price.className = "food-price";
+    price.textContent = food.price.toLocaleString("uz-UZ") + " so'm";
+
+    details.appendChild(name);
+    details.appendChild(price);
+
+    info.appendChild(emoji);
+    info.appendChild(details);
+
+    const addButton = document.createElement("button");
+    addButton.textContent = "➕ Qo'shish";
+    addButton.addEventListener("click", () => addToCart(index));
+
+    item.appendChild(info);
+    item.appendChild(addButton);
+    menu.appendChild(item);
+});
+
+function addToCart(index) {
+    const food = foods[index];
+    const existing = cart.find(item => item.name === food.name);
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            name: food.name,
+            price: food.price,
+            quantity: 1
+        });
+    }
+
+    updateCart();
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
     updateCart();
 }
 
 function updateCart() {
-    const countEl = document.getElementById('cartCount');
-    const totalEl = document.getElementById('cartTotal');
-    const tgLink = document.getElementById('tgLink');
+    const cartItems = document.getElementById("cartItems");
+    cartItems.innerHTML = "";
 
-    const subtotal = cart.reduce(
-        (sum, item) => sum + item.price, 0
-    );
-
-    const serviceFee = subtotal * 0.10;
-    const totalSum = subtotal + serviceFee;
-
-    countEl.innerText = cart.length + ' ta';
-    totalEl.innerText =
-        totalSum.toLocaleString('uz-UZ') + " so'm";
-
-    if (cart.length > 0) {
-        tgLink.classList.add('active');
-
-        const itemsSummary = {};
-
-        cart.forEach(item => {
-            itemsSummary[item.name] =
-                (itemsSummary[item.name] || 0) + 1;
-        });
-
-        currentMessage =
-            '🍽 *ROXAT Choyxonasidan Buyurtma!*\n';
-
-        currentMessage +=
-            🪑 *Stol raqami:* ${stolNum}\n\n*Buyurtmalar:*\n;
-
-        for (const [item, count] of Object.entries(itemsSummary)) {
-            currentMessage += ▫️ ${item} x ${count}\n;
-        }
-
-        currentMessage +=
-            \n🧾 *Xizmat haqqi (10%):* ${serviceFee.toLocaleString('uz-UZ')} so'm;
-
-        currentMessage +=
-            \n💰 *Jami summa:* ${totalSum.toLocaleString('uz-UZ')} so'm;
-
-        tgLink.href =
-            'https://t.me/Roxat_choyxonaa?text=' +
-            encodeURIComponent(currentMessage);
-
-    } else {
-        tgLink.classList.remove('active');
-        tgLink.href = '#';
-        currentMessage = '';
+    if (cart.length === 0) {
+        cartItems.textContent = "Hozircha savatcha bo'sh";
     }
+
+    let subtotal = 0;
+
+    cart.forEach((item, index) => {
+        subtotal += item.price * item.quantity;
+
+        const row = document.createElement("div");
+        row.className = "cart-item";
+
+        const description = document.createElement("span");
+        description.textContent =
+            item.name + " × " + item.quantity +
+            " — " + (item.price * item.quantity).toLocaleString("uz-UZ") +
+            " so'm";
+
+        const remove = document.createElement("button");
+        remove.className = "remove-btn";
+        remove.textContent = "✖";
+        remove.addEventListener("click", () => removeFromCart(index));
+
+        row.appendChild(description);
+        row.appendChild(remove);
+        cartItems.appendChild(row);
+    });
+
+    const service = Math.round(subtotal * 0.10);
+    const total = subtotal + service;
+
+    document.getElementById("subtotal").textContent =
+        subtotal.toLocaleString("uz-UZ");
+
+    document.getElementById("service").textContent =
+        service.toLocaleString("uz-UZ");
+
+    document.getElementById("total").textContent =
+        total.toLocaleString("uz-UZ");
 }
 
-function copyAndOrder(e) {
-    if (!currentMessage) {
-        e.preventDefault();
+function sendOrder() {
+    if (cart.length === 0) {
+        alert("Avval savatchaga taom qo'shing!");
         return;
     }
 
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(currentMessage)
-            .catch(err => console.log(
-                'Nusxalashda xatolik:', err
-            ));
-    }
+    let subtotal = 0;
+    let message = "🍽️ ROXAT CHOYXONA BUYURTMASI\n\n";
+
+    message += "🪑 Stol: " + (table || "Ko'rsatilmagan") + "\n\n";
+
+    cart.forEach(item => {
+        const sum = item.price * item.quantity;
+        subtotal += sum;
+
+        message += "• " + item.name +
+            " × " + item.quantity +
+            " = " + sum.toLocaleString("uz-UZ") +
+            " so'm\n";
+    });
+
+    const service = Math.round(subtotal * 0.10);
+    const total = subtotal + service;
+
+    message += "\nJami: " + subtotal.toLocaleString("uz-UZ") + " so'm";
+    message += "\nXizmat haqi (10%): " + service.toLocaleString("uz-UZ") + " so'm";
+    message += "\nUmumiy: " + total.toLocaleString("uz-UZ") + " so'm";
+
+    const telegramUrl =
+        "https://t.me/Roxat_choyxonaa?text=" +
+        encodeURIComponent(message);
+
+    window.open(telegramUrl, "_blank");
 }
 </script>
 
